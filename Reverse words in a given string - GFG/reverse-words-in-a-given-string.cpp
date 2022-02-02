@@ -12,9 +12,8 @@ class Solution
     string reverseWords(string S) 
     { 
         // code here
-        
         int n = S.size();
-        int i = n-1 ,j = n-1;
+        int i = n-1,j = n-1;
         string ans = "";
         string temp = "";
         while(i>=0)
@@ -23,15 +22,16 @@ class Solution
             if(S[i] != '.')
             {
                 temp = S[i] + temp;
-                i--;
+               
             }
             else
             {
                     ans += temp;
                     ans += '.';
                     temp = "";
-                    i--;
+                   
             }
+            i--;
           
         }
         return ans+temp;
