@@ -106,10 +106,10 @@ class Solution{
         return 0;
     }
     
-    int lh = height(node->left);
-    int rh = height(node->right);
+    // int lh = height(node->left);
+    // int rh = v;
     
-  return max(lh,rh)+1;
+  return max(height(node->left),height(node->right))+1;
     }
 };
 
