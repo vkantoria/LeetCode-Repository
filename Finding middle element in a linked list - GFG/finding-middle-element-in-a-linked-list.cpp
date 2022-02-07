@@ -44,22 +44,15 @@ class Solution{
         // Your code here
         if(!head)
            return NULL;
+        Node* slow = head;
+        Node* fast = head;
            
-        int count = 0;
-        Node * curr = head;
-        
-        while(curr!= NULL)
-        {
-            count++;
-            curr = curr->next; 
-        }
-        count /= 2;
-        curr = head;
-        while(count--)
-        {
-            curr = curr->next;
-        }
-        return count%2?curr->data:curr->next->data;
+       while(fast && fast->next!=NULL)
+       {
+           slow = slow->next;
+           fast = fast->next->next;
+       }
+       return slow->data;
     }
 };
 
