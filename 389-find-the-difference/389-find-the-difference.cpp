@@ -2,20 +2,21 @@ class Solution {
 public:
     char findTheDifference(string s, string t) {
         
-        vector<int> al(26,0);
+        unordered_map<char, int> um;
         
         for(int i=0;i<s.size();i++)
         {
-            al[s[i] - 'a'] += 1; 
+            um[s[i]]++;
         }
         for(int i=0;i<t.size();i++)
         {
-            al[t[i] - 'a'] -= 1; 
+            um[t[i]]--;
         }
-        for(int i=0;i<26;i++)
+        for(auto i:um)
         {
-            if(al[i] != 0)
-                return ('a' + i );
+            if(i.second != 0)
+                return i.first;
+
         }
         return 'c';
     }
