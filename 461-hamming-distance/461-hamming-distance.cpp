@@ -7,9 +7,8 @@ public:
         
         while(Xor!=0)
         {
-            if(Xor&1)
-              count++;
-            Xor =Xor>>1;
+           Xor = Xor&(Xor-1);
+            count++;
             
         }
         return count;
