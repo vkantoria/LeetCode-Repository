@@ -1,51 +1,47 @@
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& mo) {
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
         
-        int m = mo.size();
-        int n = mo[0].size();
+        int m = matrix.size();
+        int n = matrix[0].size();
         vector<int> ans;
         
-        int top = 0, right = n-1;
-        int down = m-1, left = 0; 
-        int count = m*n;
+        int row_up = 0, row_down = m-1;
+        int col_right = n-1, col_left = 0;
         
-        while(top<=down && left<=right)
+        while(row_up<=row_down && col_left<= col_right)
         {
-            for(int i=top;i<=right;i++)
+            for(int i = row_up;i<=col_right;i++)
             {
-                ans.push_back(mo[top][i]);
-                //count--;
+                ans.push_back(matrix[row_up][i]);
             }
-            top++;
-            if(top>down)
+            row_up++;
+            
+            if(row_up>row_down)
                 break;
             
-            for(int i=top;i<=down;i++)
+            for(int i = row_up;i<=row_down;i++)
             {
-                ans.push_back(mo[i][right]);
-                   //count--;
+                ans.push_back(matrix[i][col_right]);
             }
-            right--;
-            if(right<left)
-                break;
+            col_right--;
             
-            for(int i=right;i>=left;i--)
+            if(col_left>col_right)
+                 break;
+            
+            for(int i = col_right;i>=col_left;i--)
             {
-                ans.push_back(mo[down][i]);
-                   //count--;
+                ans.push_back(matrix[row_down][i]);
             }
-            down--;
+            row_down--;
             
-            
-            for(int i=down;i>=top;i--)
+            for(int i = row_down;i>=row_up;i--)
             {
-                ans.push_back(mo[i][left]);
-                   //count--;
+                ans.push_back(matrix[i][col_left]);
             }
-            left++;
+            col_left++;
             
         }
-        return ans;
+        return ans;  
     }
 };
