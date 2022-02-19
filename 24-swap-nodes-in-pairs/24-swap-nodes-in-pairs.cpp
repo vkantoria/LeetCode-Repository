@@ -5,15 +5,36 @@ public:
         if(!head || head->next == NULL)
              return head;
         
-        ListNode* curr = head; 
-        ListNode* nex = curr->next;
+        ListNode* nhead = NULL;
+        ListNode* prevfirst = NULL;
+        ListNode* currfirst = NULL;
+        ListNode* curr = head;
+        ListNode* nex = head;
+        ListNode* prev = NULL;
         
-       
-        
-        ListNode* temp = nex->next;
-        nex->next =  curr;
-        curr->next = swapPairs(temp);
-        return nex;
-        
+        while(curr != NULL)
+        {
+            currfirst = curr;
+            int i=0;
+            while(curr!=NULL && i<2)
+            {
+                nex = curr->next;
+                curr->next = prev;
+                prev = curr;
+                curr = nex;
+                i++;
+            }
+            
+            if(nhead  == NULL)
+                nhead = prev;
+            else
+            {
+                prevfirst->next = prev;
+                if(curr ==NULL)
+                    currfirst->next = NULL;
+            }
+            prevfirst = currfirst;
+        }
+        return nhead;
     }
 };
