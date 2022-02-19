@@ -6,11 +6,8 @@ public:
              return head;
         
         ListNode* nhead = NULL;
-        ListNode* prevfirst = NULL;
-        ListNode* currfirst = NULL;
-        ListNode* curr = head;
-        ListNode* nex = head;
-        ListNode* prev = NULL;
+        ListNode* prevfirst = NULL,*currfirst = NULL;
+        ListNode* curr = head,*nex = head,*prev = NULL;
         
         while(curr != NULL)
         {
