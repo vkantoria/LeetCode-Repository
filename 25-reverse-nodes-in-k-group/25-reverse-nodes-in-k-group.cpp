@@ -24,7 +24,7 @@ public:
             count++;
             curr = curr->next;
         }
-       // cout<<count;
+        
         curr = head;
         count = count/k;
         while(curr != NULL && count!=0)
@@ -45,13 +45,14 @@ public:
             else
             {
                 prevfirst->next = prev;
-                if(curr ==NULL)
-                    currfirst->next = NULL;
+                // if(curr == NULL)
+                //     currfirst->next = NULL;
             }
             prevfirst= currfirst; 
+            
             count--;
             
-            if(count==0)
+            if(count == 0)
             {
                prevfirst->next = curr; 
             }
